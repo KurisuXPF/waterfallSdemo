@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流实例</title>
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <link href="css/pSCss.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div id="wrap">
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/1.jpg"></div>
+            <div class="title"><a href="#">1</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/2.jpg"></div>
+            <div class="title"><a href="#">2</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/3.jpg"></div>
+            <div class="title"><a href="#">3</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/4.jpg"></div>
+            <div class="title"><a href="#">4</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/5.jpg"></div>
+            <div class="title"><a href="#">5</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/6.jpg"></div>
+            <div class="title"><a href="#">6</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/7.jpg"></div>
+            <div class="title"><a href="#">7</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/8.jpg"></div>
+            <div class="title"><a href="#">8</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/9.jpg"></div>
+            <div class="title"><a href="#">9</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/10.jpg"></div>
+            <div class="title"><a href="#">10</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/11.jpg"></div>
+            <div class="title"><a href="#">11</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/12.jpg"></div>
+            <div class="title"><a href="#">12</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/13.jpg"></div>
+            <div class="title"><a href="#">13</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/14.jpg"></div>
+            <div class="title"><a href="#">14</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/15.jpg"></div>
+            <div class="title"><a href="#">15</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/16.jpg"></div>
+            <div class="title"><a href="#">16</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/17.jpg"></div>
+            <div class="title"><a href="#">17</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/18.jpg"></div>
+            <div class="title"><a href="#">18</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/19.jpg"></div>
+            <div class="title"><a href="#">19</a></div>
+        </div>
+    </div>
+
+    <div class="box">
+        <div class="info">
+            <div class="pic"><img src="images/20.jpg"></div>
+            <div class="title"><a href="#">20</a></div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    window.onload=function () {
+        //运行瀑布流主函数
+        waterfall('wrap','box');
+        //模拟数据
+        var data=[
+            {'src':'1.jpg','title':'1'},
+            {'src':'2.jpg','title':'2'},
+            {'src':'3.jpg','title':'3'},
+            {'src':'4.jpg','title':'4'},
+            {'src':'5.jpg','title':'5'},
+            {'src':'6.jpg','title':'6'},
+            {'src':'7.jpg','title':'7'},
+            {'src':'8.jpg','title':'8'},
+            {'src':'9.jpg','title':'9'},
+            {'src':'10.jpg','title':'10'},
+            {'src':'11.jpg','title':'11'},
+            {'src':'12.jpg','title':'12'},
+            {'src':'13.jpg','title':'13'},
+            {'src':'14.jpg','title':'14'},
+            {'src':'15.jpg','title':'15'},
+            {'src':'16.jpg','title':'16'},
+            {'src':'17.jpg','title':'17'},
+            {'src':'18.jpg','title':'18'},
+            {'src':'19.jpg','title':'19'},
+            {'src':'20.jpg','title':'20'},
+            {'src':'21.jpg','title':'21'},
+            {'src':'22.jpg','title':'22'},
+            {'src':'23.jpg','title':'23'},
+            {'src':'24.jpg','title':'24'},
+            {'src':'25.jpg','title':'25'},
+            {'src':'26.jpg','title':'26'},
+            {'src':'27.jpg','title':'27'},
+            {'src':'28.jpg','title':'28'},
+            {'src':'29.jpg','title':'29'},
+            {'src':'30.jpg','title':'30'}
+        ];
+        //设置滚动加载
+        window.onscroll=function () {
+            if(getCheck()){
+                var wrap=document.getElementById('wrap');
+                for(var i in data){
+                    //创建box
+                    var box=document.createElement('div');
+                    box.className='box';
+                    wrap.appendChild(box);
+                    //创建info
+                    var info=document.createElement('div');
+                    info.className='info';
+                    box.appendChild(info);
+                    //创建pic
+                    var pic = document.createElement('div');
+                    pic.className = 'pic';
+                    info.appendChild(pic);
+                    //创建img
+                    var img = document.createElement('img');
+                    img.src = 'images/'+data[i].src;
+                    img.style.height = 'auto';
+                    pic.appendChild(img);
+                    //创建title
+                    var title = document.createElement('div');
+                    title.className = 'title';
+                    info.appendChild(title);
+                    //创建a标记
+                    var a = document.createElement('a');
+                    a.innerHTML = data[i].title;
+                    title.appendChild(a);
+                }
+                waterfall('wrap','box');
+            }
+        }
+    };
+    /**
+     * 瀑布流主函数
+     * @param  wrap	[Str] 外层元素的ID
+     * @param  box 	[Str] 每一个box的类名
+     */
+    function waterfall(wrap,box) {
+        //	1.获得外层以及每一个box
+        var wrap = document.getElementById(wrap);
+        var boxs  = getClass(wrap,box);
+
+        //	2.获得屏幕可显示的列数
+        var boxW = boxs[0].offsetWidth;
+        var colsNum = Math.floor(document.documentElement.clientWidth/boxW);
+        wrap.style.width = boxW*colsNum+'px';//为外层赋值宽度
+
+        //	3.循环出所有的box并按照瀑布流排列
+        var everyH = [];//定义一个数组存储每一列的高度
+        for (var i = 0; i < boxs.length; i++) {
+            if(i<colsNum){
+                everyH.push(boxs[i].offsetHeight);
+            }else{
+                var minH = Math.min.apply(null,everyH);//获得最小的列的高度
+                var minIndex = getIndex(minH,everyH); //获得最小列的索引
+                getStyle(boxs[i],minH,boxs[minIndex].offsetLeft,i);
+                everyH[minIndex] += boxs[i].offsetHeight;//更新最小列的高度
+            }
+            //console.log(everyH);
+        }
+    }
+    /**
+     * 获取类元素
+     * @param  warp		[Obj] 外层
+     * @param  className	[Str] 类名
+     */
+    function getClass(wrap,className){
+        var obj = wrap.getElementsByTagName('*');
+        var arr = [];
+        for(var i=0;i<obj.length;i++){
+            if(obj[i].className === className){
+                arr.push(obj[i]);
+            }
+        }
+        return arr;
+    }
+    /**
+     * 获取最小列的索引
+     * @param  minH	 [Num] 最小高度
+     * @param  everyH [Arr] 所有列高度的数组
+     */
+    function getIndex(minH,everyH){
+        for(var i in everyH){
+            if (everyH[i] === minH ) return i;
+        }
+    }
+    /**
+     * 数据请求检验(最后一个数据块的位置与（滚动条与窗口高度）的关系)
+     */
+    function getCheck() {
+        var documentH=document.documentElement.clientHeight||document.body.clientHeight;
+        var scrollH=document.documentElement.scrollTop||document.body.scrollTop;
+        return documentH + scrollH >= getLastH();
+    }
+    /**
+     * 获得最后一个box所在列的高度
+     */
+    function getLastH(){
+        var wrap=document.getElementById('wrap');
+        var boxs=getClass(wrap,'box');
+        return boxs[boxs.length-1].offsetTop+Math.floor((boxs[boxs.length-1].offsetHeight)/2);
+    }
+    /**
+     * 设置加载样式
+     * @param  box 	[obj] 设置的Box
+     * @param  top 	[Num] box的top值
+     * @param  left 	[Num] box的left值
+     * @param  index [Num] box的第几个
+     */
+    var getStartNum = 0;//设置请求加载的条数的位置
+    function getStyle(box,top,left,index){
+        if (getStartNum>=index) return;
+        $(box).css({
+            'position':'absolute',
+            'top':top,
+            "left":left,
+            "opacity":"0"
+        });
+        $(box).stop().animate({
+            "opacity":"1"
+        },300);
+        getStartNum = index;//更新请求数据的条数位置
+    }
+
+</script>
+</body>
+</html>
